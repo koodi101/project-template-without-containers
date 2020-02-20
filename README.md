@@ -81,6 +81,18 @@ docker-compose down
 
 </details>
 
+## Clearing the database
+
+The database is stored in an [anonymous volume](https://docs.docker.com/storage/) which may be removed using
+
+```bash
+docker-compose down -v
+```
+
+> For instance, if you edit the [models](bacend/src/models/), you need to remove the database volume 👆 for the changes to get applied
+
+<!-- TODO How to manually edit the database using `psql` -->
+
 ## Running the project with only Node.js
 
 ### Prerequisites
@@ -111,11 +123,13 @@ The frontend is now running at [http://localhost:8000](http://localhost:8000)
 
 ## Collaborating
 
-Collaboration is the heart of Open Source software development in GitHub.
-
 > Only the owner of the forked repository in your group needs to add the collaborators
 
+Collaboration is the heart of Open Source software development in GitHub.
+
 After creating/forking a repository, owner may add collaborators to it alternatively in the GitHub repository page by clicking `settings -> collaborators` or by going to the web page by the following URL where `<username>` is replaced by a repository owner's username
+
+Collaborators can clone the owner's repository using SSH and push changes to it.
 
 ```bash
 https://github.com/<username>/project-template-without-containers/settings/access
@@ -123,7 +137,9 @@ https://github.com/<username>/project-template-without-containers/settings/acces
 
 And, by searching usernames of other students (collaborators), owner can invite them as group members to allow them pushing (making changes) to the repository.
 
-Upon inviting your group members, they will receive the invitation via email. Only after accepting the invitation will they be able to push to the repository.
+Upon inviting your group members, they will receive the invitation via email. Only after accepting the invitation are they given access to the repository.
+
+[Here is the help page with also images](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)
 
 ### Collaborating example
 
