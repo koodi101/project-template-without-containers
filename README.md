@@ -17,7 +17,9 @@ git clone git@github.com:<user>/project-template-without-containers.git
 >
 > Using SSH allows you to push (write) to the repository without providing you username and password! Handy, right?
 
-## Running the project
+## Running the project with Docker
+
+> The ubuntu servers still use docker. Node is not installed on the servers.
 
 Start by going to the cloned repository in a terminal
 
@@ -83,15 +85,15 @@ docker-compose down
 
 ## Clearing the database
 
-The database is stored in an [anonymous volume](https://docs.docker.com/storage/) which may be removed using
+The database is stored in a sqlite file in `backend/db/chat.sqlite`.
 
-```bash
-docker-compose down -v
+To clear the database, stop the backend and remove the file:
+
+> You can stop a running foreground process using `Ctrl-C`
+
+```shell
+rm db/chat.sqlite
 ```
-
-> For instance, if you edit the [models](bacend/src/models/), you need to remove the database volume 👆 for the changes to get applied
-
-<!-- TODO How to manually edit the database using `psql` -->
 
 ## Running the project with only Node.js
 
@@ -143,7 +145,7 @@ Upon inviting your group members, they will receive the invitation via email. On
 
 ### Collaborating example
 
-- Niklash on is making changes to [`src/index.jsx`](src/index.jsx), committing them and finally pushing them to GitHub.
+- Niklash on is making changes to `src/index.jsx`, committing them and finally pushing them to GitHub.
 
 ![computer1](computer1.gif)
 
